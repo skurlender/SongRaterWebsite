@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <title>User Regristration and Music Retrieval</title>
+
+    <link rel="stylesheet" href="...music/templates/music/ss.css">
+</head>
+
+<body>
+    
+
+    <div class = "form_container">
+
+        <h3> User Regristration </h3>
+        <form action = "" method = "post">
+            {% csrf_token %}
+            {{uform}}
+            <input type = "submit" name="submit" value="Register">
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class = "form_container">
+        <h3> User Song Information Retrieval </h3>
+        <form action = "" method = "get">
+            {% csrf_token %}
+            Username: <input type="text" name="user"/>
+            <input type = "submit" name="submit" value="Retrieve">
+            {% if printme != 'lawl' %}
+                {% for i in printme %}
+                    <p>{{i}}</p>
+                {% endfor %}
+            {% elif printme == 'lawl' %}
+                <p>Sorry, this user has not rated any songs.</p>
+            {% endif %}
+        </form>
+    </div>
+
+</body>
+</html>
+
+<style>
+    .form_container {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 12px;
+        background-color:darksalmon;
+    }
+    body{
+        background-image: url("https://d2w9rnfcy7mm78.cloudfront.net/15562210/original_11cb0298ef19067ed81d172c45fe86bb.jpg?1647202049?bc=0");
+        background-size: 200px;
+        /* width: 300px; */
+        /* height: 300px; */
+    }
+</style>
